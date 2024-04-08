@@ -13,19 +13,37 @@
 </head>
 
 <style>
+    /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 5 version
+*/
 
-body {
-    font-family: 'Poppins', sans-serif;
-}
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+
+
     #dt {
         position: absolute;
-        top: 58%;
-        left: 48%;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        -ms-transform: translate(-50%, -50%) scale(0);
         transform: translate(-50%, -50%) scale(0);
         z-index: 1;
         color: transparent;
         opacity: 0;
+        -webkit-transition: -webkit-transform ease-in 0.3s;
+        transition: -webkit-transform ease-in 0.3s;
+        -o-transition: transform ease-in 0.3s;
         transition: transform ease-in 0.3s;
+        transition: transform ease-in 0.3s, -webkit-transform ease-in 0.3s;
+        background-image: -webkit-gradient(linear, left bottom, right top, from(#3228c9), color-stop(#454dc4), color-stop(#ae3b41), color-stop(#8d3d7a), to(#9535c1));
+        background-image: -o-linear-gradient(left bottom, #3228c9, #454dc4, #ae3b41, #8d3d7a, #9535c1);
         background-image: linear-gradient(to right top, #3228c9, #454dc4, #ae3b41, #8d3d7a, #9535c1);
         -webkit-background-clip: text;
         background-clip: text;
@@ -48,6 +66,8 @@ body {
         border-right: 1px solid rgb(197, 197, 197);
     }
 
+   
+
     .story {
         border-width: 2px;
         width: 38px;
@@ -59,6 +79,8 @@ body {
     }
 
     .stories-section {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         overflow-x: auto;
         /* Horizontal scroll for overflow */
@@ -80,6 +102,7 @@ body {
         /* Hide overflowing content (like image shadows) */
         position: relative;
         /* Relative positioning for absolute content */
+        -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         /* Shadow effect */
 
@@ -93,12 +116,13 @@ body {
     .s img {
         width: 100%;
         height: 100%;
+        -o-object-fit: cover;
         object-fit: cover;
         /* Maintain aspect ratio */
         border-radius: 50%;
     }
 
-    .ss{
+    .ss {
         margin-right: 7px;
     }
 
@@ -107,25 +131,26 @@ body {
         margin-right: 8px;
     }
 
-    .side h5{
+    .side h5 {
         color: gray;
     }
 
-    .side h3{
+    .side h3 {
         font-weight: 400;
     }
 
-    .acc img{
+    .acc img {
         border-radius: 50%;
         width: 50px;
         height: 50px;
     }
 
 
-    .w{
+    .w {
         display: block;
     }
-    .k{
+
+    .k {
         display: none;
     }
 
@@ -134,77 +159,90 @@ body {
 
 
     .stories-section {
-    display: flex;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: hidden; /* Prevent vertical scrolling */
-    padding: 10px;
-    /* Other styles */
-}
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        overflow-x: hidden;
+        /* Prevent horizontal scrolling */
+        overflow-y: hidden;
+        /* Prevent vertical scrolling */
+        padding: 10px;
+        /* Other styles */
+    }
 
 
 
-.itm li p{
-    background-color: red;
-    color: white;
-    padding: 3px;
-    font-size: 13px;
-    margin-left: 13px;
-    margin-top: 1px;
-    line-height: 1.2;
-    
-}
+    .itm li p {
+        background-color: red;
+        color: white;
+        padding: 3px;
+        font-size: 13px;
+        margin-left: 13px;
+        margin-top: 1px;
+        line-height: 1.2;
+
+    }
 
 
-
-
-
-
-
-
-
-
-
+    .most {
+        margin-top: auto;
+    }
 </style>
 
 <body class="bg-white w-full flex">
 
 
-    <main class="flex flex-row h-screen md:flex-row">
+    <main class="flex h-screen md:flex-row justify-center w-full">
 
-        <div class="menu flex flex-col bg-white justify-between px-4 py-5 w-1/5 md:w-1/7 md:justify-start md:-mt-4">
-            <div class="logo ml-3 mt-5"><img src="https://i.pinimg.com/564x/d9/3a/db/d93adb1816eb64a808298982c7d6ad89.jpg"
-                    alt=""></div>
+        <div
+            class="menu bg-white flex flex-col justify-between px-4 py-5 w-1/5 md:w-1/7 md:justify-start md:-mt-4 relative">
+            <div class="logo ml-3 mt-7"><img
+                    src="https://i.pinimg.com/564x/d9/3a/db/d93adb1816eb64a808298982c7d6ad89.jpg" alt=""></div>
 
-            
 
-            <div class="itm mt-3">
+
+            <div class="itm mt-4">
                 <ul class="flex flex-col pl-5 pt-5 pb-5 pr-2">
-                    <li class="mb-3 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i class="ri-home-4-line text-2xl mr-3"></i><b><span class="font-bold">Home</span></b></li>
-                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i class="ri-search-line text-2xl mr-3"></i><span>Search</span></li>
-                    <li class="mb-3 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i class="ri-compass-3-line text-2xl mr-3"></i><span>Explore</span></li>
-                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg flex items-center"><img src="video.png" class="text-2xl mr-3 ml-0.5" width="21px"><span class="ml-0.5">Reels</span></li>
-                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg relative"><i class="ri-wechat-2-line text-2xl mr-3"></i><span>Messages</span> <div class="msgs absolute top-0">
-                        <p class="rounded-full">78</p>
-                    </div></li>
-                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"> <i class="ri-heart-line text-2xl mr-3"></i><span>Notifications</span></li>
-                    <li class="mb-3 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i class="ri-add-box-line text-2xl mr-3"></i><span>Create</span></li>
-                    <li class="mb-2 hover:bg-gray-100 pt-3 pb-2 pl-4 w-48 -ml-4 rounded-lg flex"><img class="rounded-full text-2xl mr-3"
+                    <li class="mb-3 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i
+                            class="ri-home-4-line text-2xl mr-3"></i><b><span class="font-bold">Home</span></b></li>
+                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i
+                            class="ri-search-line text-2xl mr-3"></i><span>Search</span></li>
+                    <li class="mb-3 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i
+                            class="ri-compass-3-line text-2xl mr-3"></i><span>Explore</span></li>
+                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg flex items-center"><img
+                            src="video.png" class="text-2xl mr-3 ml-0.5" width="21px"><span class="ml-0.5">Reels</span>
+                    </li>
+                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg relative"><i
+                            class="ri-wechat-2-line text-2xl mr-3"></i><span>Messages</span>
+                        <div class="msgs absolute top-0">
+                            <p class="rounded-full">78</p>
+                        </div>
+                    </li>
+                    <li class="mb-2 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"> <i
+                            class="ri-heart-line text-2xl mr-3"></i><span>Notifications</span></li>
+                    <li class="mb-3 hover:bg-gray-100 pt-2 pb-2 pl-4 w-48 -ml-4 rounded-lg"><i
+                            class="ri-add-box-line text-2xl mr-3"></i><span>Create</span></li>
+                    <li class="mb-2 hover:bg-gray-100 pt-3 pb-2 pl-4 w-48 -ml-4 rounded-lg flex"><img
+                            class="rounded-full text-2xl mr-3"
                             src="https://yt3.googleusercontent.com/RDwJjyzPnyP7H9QhjgV1ozD178Hqk-BeJ2aYPqLaVPcYBFHOFeY3a0GpGEjwIOwpaConl6PH2g=s900-c-k-c0x00ffffff-no-rj"
                             alt="" width="25px" height="5px"><span>Profile</span></li>
                 </ul>
             </div>
 
-            <div class="more itm mb-2 hover:bg-gray-100 pt-3 pb-3 ml-1 pl-4 w-48 -ml-4 rounded-lg">
-                <i class="ri-menu-line text-2xl mr-3"></i><span>More</span>
-            </div>
+
+            
+
+                <div class="most itm mb-2 hover:bg-gray-100 pt-3 pb-3 ml-1 pl-4 w-48 -ml-4 rounded-lg sticky absolute bottom-0 left-0">
+                    <i class="ri-menu-line text-2xl mr-3"></i><span>More</span>
+                </div>
         </div>
 
 
 
-        <div class="mp flex flex-col">
+        <div class="mp flex flex-col items-center w-full" style="height: 100vh;">
 
 
-            <div class="stories-section mt-5 ml-12">
+            <div class="stories-section mt-5 ml-12 w-full justify-center">
                 <div class="ss flex flex-col items-center">
                     <div class="s p-1">
                         <img src="sumit.png" alt="" width="60px">
@@ -274,10 +312,10 @@ body {
             </div>
 
 
-           
 
 
-            <div class="container w-3/4 bg-white rounded-lg ml-32 mt-5">
+
+            <div class="container flex flex-col w-3/4 bg-white rounded-lg ml-10 mt-5 justify-center">
                 <div class="user flex items-center py-2 justify-between">
                     <div class="use flex items-center">
                         <div class="story rounded-full flex items-center justify-center relative">
@@ -294,10 +332,12 @@ body {
                         <i class="ri-more-line text-2xl cursor-pointer"></i>
                     </div>
                 </div>
-                <div class="post w-full">
-                    <img class="" src="IMG_8637(1).jpg" alt="" width="100%">
+
+                <div class="post w-full flex justify-center relative">
+                    <img class="responsive-img" src="IMG_8637(1).jpg" alt="" width="100%" height="100%">
                     <i id="dt" class="ri-heart-fill"></i>
                 </div>
+
                 <div class="buttons w-full flex flex-row justify-between mt-2">
                     <div class="lcs flex">
                         <i class="safed ri-heart-line text-2xl mr-2 cursor-pointer"></i>
@@ -317,21 +357,24 @@ body {
                 </div>
 
             </div>
+            
         </div>
 
 
 
 
 
-        <div class="side w-1/2 px-12 py-5 mt-5">
+        <div class="side flex flex-col w-1/2 px-9 py-5 mt-5" style="max-width:370px;">
 
             <div class="more">
                 <div class="my flex justify-between">
                     <div class="acc flex flex-row items-center">
-                    <img class="rounded-full" src="https://yt3.googleusercontent.com/RDwJjyzPnyP7H9QhjgV1ozD178Hqk-BeJ2aYPqLaVPcYBFHOFeY3a0GpGEjwIOwpaConl6PH2g=s900-c-k-c0x00ffffff-no-rj" alt="" width="50px">
+                        <img class="rounded-full"
+                            src="https://yt3.googleusercontent.com/RDwJjyzPnyP7H9QhjgV1ozD178Hqk-BeJ2aYPqLaVPcYBFHOFeY3a0GpGEjwIOwpaConl6PH2g=s900-c-k-c0x00ffffff-no-rj"
+                            alt="" width="50px">
                         <div class="naam ml-3">
-                        <h3 style="font-size: 15px;">udaysharmaaaaa</h3>
-                        <h5 style="font-size: 10px;">Uday Sharma | Mini Vlogs</h5>
+                            <h3 style="font-size: 15px;">udaysharmaaaaa</h3>
+                            <h5 style="font-size: 10px;">Uday Sharma | Mini Vlogs</h5>
                         </div>
                     </div>
 
@@ -346,64 +389,75 @@ body {
 
                 <div class="sug flex justify-between mt-5">
                     <div class="acc flex flex-row items-center">
-                        <img class="rounded-full" src="https://i.pinimg.com/736x/9d/13/1c/9d131cd9a7f98760cbb338cb2261e8f1.jpg" alt="" width="50px">
-                            <div class="naam ml-3">
+                        <img class="rounded-full"
+                            src="https://i.pinimg.com/736x/9d/13/1c/9d131cd9a7f98760cbb338cb2261e8f1.jpg" alt=""
+                            width="50px">
+                        <div class="naam ml-3">
                             <h3 style="font-size: 15px;">SimranKaur01</h3>
                             <h5 style="font-size: 10px;">Suggested for you</h5>
-                            </div>
                         </div>
-    
-                        <button id="ff" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
+                    </div>
+
+                    <button id="ff" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
                 </div>
                 <div class="sug flex justify-between mt-3">
                     <div class="acc flex flex-row items-center">
-                        <img class="rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiWCBJN9QkqyZt-fh6wdh70YxmDMpFt6rXwAfyTbXs6A&s" alt="" width="50px">
-                            <div class="naam ml-3">
+                        <img class="rounded-full"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiWCBJN9QkqyZt-fh6wdh70YxmDMpFt6rXwAfyTbXs6A&s"
+                            alt="" width="50px">
+                        <div class="naam ml-3">
                             <h3 style="font-size: 15px;">Pooja23Sharma</h3>
                             <h5 style="font-size: 10px;">Suggested for you</h5>
-                            </div>
                         </div>
-    
-                        <button id="ff1" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
+                    </div>
+
+                    <button id="ff1" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
                 </div>
                 <div class="sug flex justify-between mt-3">
                     <div class="acc flex flex-row items-center">
-                        <img class="rounded-full" src="https://i.pinimg.com/736x/95/7f/b8/957fb88ac00058e45e548611658f8324.jpg" alt="" width="50px">
-                            <div class="naam ml-3">
+                        <img class="rounded-full"
+                            src="https://i.pinimg.com/736x/95/7f/b8/957fb88ac00058e45e548611658f8324.jpg" alt=""
+                            width="50px">
+                        <div class="naam ml-3">
                             <h3 style="font-size: 15px;">NishaPatel_04</h3>
                             <h5 style="font-size: 10px;">Suggested for you</h5>
-                            </div>
                         </div>
-    
-                        <button id="ff2" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
+                    </div>
+
+                    <button id="ff2" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
                 </div>
                 <div class="sug flex justify-between mt-3">
                     <div class="acc flex flex-row items-center">
-                        <img class="rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzOaNOL4vp2ClpIfByLqXfA_AxwdvopWGmyf6ZdPZfk7qfX-FrFqol2BlWmRUKyjmkYRw&usqp=CAU" alt="" width="50px">
-                            <div class="naam ml-3">
+                        <img class="rounded-full"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzOaNOL4vp2ClpIfByLqXfA_AxwdvopWGmyf6ZdPZfk7qfX-FrFqol2BlWmRUKyjmkYRw&usqp=CAU"
+                            alt="" width="50px">
+                        <div class="naam ml-3">
                             <h3 style="font-size: 15px;">AyeshaRao_11</h3>
                             <h5 style="font-size: 10px;">Suggested for you</h5>
-                            </div>
                         </div>
-    
-                        <button id="ff3" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
+                    </div>
+
+                    <button id="ff3" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
                 </div>
                 <div class="sug flex justify-between mt-3">
                     <div class="acc flex flex-row items-center">
-                        <img class="rounded-full" src="https://i.pinimg.com/originals/61/df/9d/61df9d5e0bae33677d78a0077bca12a1.jpg" alt="" width="50px">
-                            <div class="naam ml-3">
+                        <img class="rounded-full"
+                            src="https://i.pinimg.com/originals/61/df/9d/61df9d5e0bae33677d78a0077bca12a1.jpg" alt=""
+                            width="50px">
+                        <div class="naam ml-3">
                             <h3 style="font-size: 15px;">AnanyaMukherjee</h3>
                             <h5 style="font-size: 10px;">Suggested for you</h5>
-                            </div>
                         </div>
-    
-                        <button id="ff4" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
+                    </div>
+
+                    <button id="ff4" class="text-blue-500 text-xs hover:text-blue-900">Follow</button>
                 </div>
             </div>
 
             <div class="info mt-8">
-                <p class="text-gray-400 w-full text-xs">About . Help . Press . API . Jobs . Privacy . Terms .<br> Locations. Language . Meta Verified</p>
-                <p class="text-gray-400 w-full text-xs mt-4" >© 2024 Instagram from Meta</p>
+                <p class="text-gray-400 w-full text-xs">About . Help . Press . API . Jobs . Privacy . Terms .<br>
+                    Locations. Language . Meta Verified</p>
+                <p class="text-gray-400 w-full text-xs mt-4">© 2024 Instagram from Meta</p>
             </div>
         </div>
 
@@ -423,7 +477,7 @@ body {
     var unsave = document.querySelector(".k")
 
     var num = document.querySelector("#l")
-    
+
     var Follow = document.querySelector("#ff")
     var Follow1 = document.querySelector("#ff1")
     var Follow2 = document.querySelector("#ff2")
@@ -463,12 +517,12 @@ body {
     })
 
 
-    save.addEventListener("click", function() {
+    save.addEventListener("click", function () {
         unsave.style.display = "block"
         save.style.display = "none"
     })
 
-    unsave.addEventListener("click", function() {
+    unsave.addEventListener("click", function () {
         unsave.style.display = "none"
         save.style.display = "block"
     })
@@ -476,64 +530,64 @@ body {
 
 
 
-    ff.addEventListener("click", function(){
-        if (z==0) {
+    ff.addEventListener("click", function () {
+        if (z == 0) {
             ff.innerHTML = "Following"
             ff.style.color = "black"
-            z=1
+            z = 1
         } else {
             ff.innerHTML = "Follow"
             ff.style.color = "Blue"
-            z=0
+            z = 0
         }
     })
 
 
-    ff1.addEventListener("click", function(){
-        if (z==0) {
+    ff1.addEventListener("click", function () {
+        if (z == 0) {
             ff1.innerHTML = "Following"
             ff1.style.color = "black"
-            z=1
+            z = 1
         } else {
             ff1.innerHTML = "Follow"
             ff1.style.color = "Blue"
-            z=0
+            z = 0
         }
     })
 
-    ff2.addEventListener("click", function(){
-        if (z==0) {
+    ff2.addEventListener("click", function () {
+        if (z == 0) {
             ff2.innerHTML = "Following"
             ff2.style.color = "black"
-            z=1
+            z = 1
         } else {
             ff2.innerHTML = "Follow"
             ff2.style.color = "Blue"
-            z=0
+            z = 0
         }
     })
 
-    ff3.addEventListener("click", function(){
-        if (z==0) {
+    ff3.addEventListener("click", function () {
+        if (z == 0) {
             ff3.innerHTML = "Following"
             ff3.style.color = "black"
-            z=1
+            z = 1
         } else {
             ff3.innerHTML = "Follow"
             ff3.style.color = "Blue"
-            z=0
+            z = 0
         }
     })
 
-    ff4.addEventListener("click", function(){
-        if (z==0) {
+    ff4.addEventListener("click", function () {
+        if (z == 0) {
             ff4.innerHTML = "Following"
             ff4.style.color = "black"
-            z=1
+            z = 1
         } else {
             ff4.innerHTML = "Follow"
             ff4.style.color = "Blue"
-            z=0
+            z = 0
         }
     })
 </script>
